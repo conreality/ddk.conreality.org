@@ -7,6 +7,7 @@ Conreality Driver Development Kit (DDK) Manual
 
    intro
    arch
+   interfaces
    examples
    faq
    history
