@@ -111,18 +111,37 @@ todo_include_todos = True
 
 # -- Options for HTML output ----------------------------------------------
 
+# See: https://github.com/ryan-roemer/sphinx-bootstrap-theme
+import sphinx_bootstrap_theme
+
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'alabaster'
+html_theme = 'bootstrap'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-html_theme_options = {}
+html_theme_options = {
+  'navbar_title': project,
+  'navbar_site_name': 'TOC',
+  'navbar_links': [
+    #('Link', '#', True),
+  ],
+  'navbar_sidebarrel': True,
+  'navbar_pagenav': True,
+  'navbar_pagenav_name': 'Page',
+  'globaltoc_depth': 1,
+  'globaltoc_includehidden': True,
+  'navbar_class': 'navbar',
+  'navbar_fixed_top': True,
+  'source_link_position': 'footer',
+  'bootswatch_theme': 'cosmo',
+  'bootstrap_version': '3',
+}
 html_context = {}
 
 # Add any paths that contain custom themes here, relative to this directory.
-html_theme_path = ['.themes']
+html_theme_path = ['.themes'] + sphinx_bootstrap_theme.get_html_theme_path()
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -159,7 +178,7 @@ html_static_path = ['.static']
 html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
-#html_sidebars = {}
+#html_sidebars = {'index': ['localtoc.html']}
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
