@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # Conreality DDK documentation build configuration file, created by
-# sphinx-quickstart on Fri Dec  4 10:46:31 2015.
+# `sphinx-quickstart` for Sphinx 1.3.3.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -52,7 +52,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Conreality DDK'
-copyright = u'2015, Arto Bendiken'
+#copyright = None
 author = u'Arto Bendiken'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -79,7 +79,7 @@ language = None
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['.build']
+exclude_patterns = ['.build', '.themes', 'README.rst']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -118,17 +118,18 @@ html_theme = 'alabaster'
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-#html_theme_options = {}
+html_theme_options = {}
+html_context = {}
 
 # Add any paths that contain custom themes here, relative to this directory.
-#html_theme_path = []
+html_theme_path = ['.themes']
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-#html_title = None
+html_title = 'Conreality Driver Development Kit (DDK) Manual'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-#html_short_title = None
+html_short_title = 'Conreality DDK Manual'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -155,7 +156,7 @@ html_static_path = ['.static']
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
-#html_use_smartypants = True
+html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
 #html_sidebars = {}
@@ -165,7 +166,7 @@ html_static_path = ['.static']
 #html_additional_pages = {}
 
 # If false, no module index is generated.
-#html_domain_indices = True
+html_domain_indices = False
 
 # If false, no index is generated.
 #html_use_index = True
@@ -174,13 +175,13 @@ html_static_path = ['.static']
 #html_split_index = False
 
 # If true, links to the reST sources are added to the pages.
-#html_show_sourcelink = True
+html_show_sourcelink = False
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
-#html_show_sphinx = True
+html_show_sphinx = False
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
-#html_show_copyright = True
+html_show_copyright = False
 
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the
@@ -205,13 +206,13 @@ html_static_path = ['.static']
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'ConrealityDDKdoc'
+htmlhelp_basename = 'conreality-ddk'
 
 # -- Options for LaTeX output ---------------------------------------------
 
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
+'papersize': 'a4paper',
 
 # The font size ('10pt', '11pt' or '12pt').
 #'pointsize': '10pt',
@@ -227,8 +228,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'ConrealityDDK.tex', u'Conreality DDK Documentation',
-   u'Arto Bendiken', 'manual'),
+  (master_doc, 'conreality-ddk.tex', html_title, author, 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -257,12 +257,11 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'conrealityddk', u'Conreality DDK Documentation',
-     [author], 1)
+    (master_doc, 'conreality-ddk', html_short_title, [author], 1)
 ]
 
 # If true, show URL addresses after external links.
-#man_show_urls = False
+man_show_urls = False
 
 
 # -- Options for Texinfo output -------------------------------------------
@@ -271,8 +270,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'ConrealityDDK', u'Conreality DDK Documentation',
-   author, 'ConrealityDDK', 'One line description of project.',
+  (master_doc, 'conreality-ddk', html_short_title,
+   author, 'conreality-ddk', 'One line description of project.',
    'Miscellaneous'),
 ]
 
@@ -295,7 +294,7 @@ texinfo_documents = [
 epub_title = project
 epub_author = author
 epub_publisher = author
-epub_copyright = copyright
+#epub_copyright = copyright
 
 # The basename for the epub file. It defaults to the project name.
 #epub_basename = project
@@ -308,7 +307,7 @@ epub_copyright = copyright
 
 # The language of the text. It defaults to the language option
 # or 'en' if the language is not set.
-#epub_language = ''
+epub_language = 'en'
 
 # The scheme of the identifier. Typical schemes are ISBN or URL.
 #epub_scheme = ''
