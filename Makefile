@@ -190,3 +190,6 @@ pseudoxml:
 	$(SPHINXBUILD) -b pseudoxml $(ALLSPHINXOPTS) $(BUILDDIR)/pseudoxml
 	@echo
 	@echo "Build finished. The pseudo-XML files are in $(BUILDDIR)/pseudoxml."
+
+publish: $(BUILDDIR)/html
+	rsync -azv $(BUILDDIR)/html/ conreality@ddk.conreality.org:sites/ddk.conreality.org/
