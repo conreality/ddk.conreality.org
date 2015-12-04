@@ -376,5 +376,8 @@ epub_exclude_files = ['search.html']
 # If false, no index is generated.
 #epub_use_index = True
 
-# Example configuration for intersphinx: refer to the Python standard library.
-intersphinx_mapping = {'https://docs.python.org/': None}
+# See: http://sphinx-doc.org/ext/intersphinx.html
+intersphinx_mapping = {
+  'api': ('http://api.conreality.org/', None),
+  'sdk': ('http://sdk.conreality.org/', None),
+}
