@@ -16,6 +16,10 @@ Glossary
 
      (Device) Driver Development Kit.
 
+   DMA
+
+     Direct Memory Access.
+
    GPIO
 
      General-Purpose I/O.
@@ -23,6 +27,10 @@ Glossary
    I/O
 
      Input/Output.
+
+   PWM
+
+     Pulse Width Modulation.
 
    SDK
 
