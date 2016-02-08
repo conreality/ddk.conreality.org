@@ -2,6 +2,10 @@
 Introduction
 ************
 
+The Conreality Driver Development Kit (DDK) is a toolkit meant for hackers &
+makers adding support in Conreality for new hardware devices or porting the
+Conreality platform to new hardware architectures and development boards.
+
 Conreality device drivers are userspace abstractions that are implemented
 primarily in the OCaml programming language, with minor bits of lower-level
 C/C++ language glue as needed.
