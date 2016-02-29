@@ -50,7 +50,7 @@ Signal Handling
 
 It is the responsibility of the driver process to set up signal handlers and
 correctly handle signals delivered by the kernel. The following
-signal-handling behaviors are normative for drive processes:
+signal-handling behaviors are normative for driver processes:
 
 * ``SIGHUP``: reload configuration.
 
