@@ -191,5 +191,13 @@ pseudoxml:
 	@echo
 	@echo "Build finished. The pseudo-XML files are in $(BUILDDIR)/pseudoxml."
 
-publish: $(BUILDDIR)/html
+publish: publish-html
+
+publish-html: $(BUILDDIR)/html
 	rsync -azv $(BUILDDIR)/html/ conreality@ddk.conreality.org:sites/ddk.conreality.org/
+
+publish-pdf: $(BUILDDIR)/latex
+	rsync -azv $(BUILDDIR)/latex/conreality-ddk.pdf conreality@ddk.conreality.org:sites/ddk.conreality.org/download/
+
+publish-epub: $(BUILDDIR)/epub
+	rsync -azv $(BUILDDIR)/epub/conreality-ddk.epub conreality@ddk.conreality.org:sites/ddk.conreality.org/download/
