@@ -2,6 +2,8 @@
 Frequently Asked Questions (FAQ)
 ********************************
 
+**(To be written.)**
+
 Technical Questions
 ===================
 

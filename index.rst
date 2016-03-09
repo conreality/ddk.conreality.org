@@ -24,7 +24,6 @@ The latest version of this manual can be browsed online at
    interfaces
    ocaml
    python
-   examples
    faq
    history
    glossary

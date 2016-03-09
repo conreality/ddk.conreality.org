@@ -2,8 +2,12 @@
 Conreality DDK for Python
 *************************
 
+**(To be written.)**
+
 Tutorial
 ========
+
+**(To be written.)**
 
 .. code-block:: python
 
@@ -12,11 +16,15 @@ Tutorial
 Defining the Driver Event Loop
 ------------------------------
 
+**(To be written.)**
+
 .. literalinclude:: python/my_driver.py
    :pyobject: MyDriver
 
 Parsing Command-Line Arguments
 ------------------------------
+
+**(To be written.)**
 
 .. literalinclude:: python/my_driver.py
    :pyobject: MyArgumentParser
@@ -29,6 +37,8 @@ Parsing Command-Line Arguments
 Reference
 =========
 
+**(To be written.)**
+
 .. py:module:: conreality.ddk
 
 .. py:module:: conreality.ddk.camera
@@ -36,10 +46,14 @@ Reference
 Module ``conreality.ddk.camera``
 --------------------------------
 
+**(To be written.)**
+
 .. py:module:: conreality.ddk.driver
 
 Module ``conreality.ddk.driver``
 --------------------------------
+
+**(To be written.)**
 
 .. py:class:: Driver(argv=sys.argv, argparser=ArgumentParser)
 
@@ -97,6 +111,8 @@ Module ``conreality.ddk.driver``
 
 Module ``conreality.ddk.sysexits``
 ----------------------------------
+
+**(To be written.)**
 
 .. py:data:: EX_OK          = 0  # successful termination
 .. py:data:: EX_USAGE       = 64 # command line usage error
