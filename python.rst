@@ -4,15 +4,36 @@ Conreality DDK for Python
 
 **(To be written.)**
 
+The Python ecosystem affords drivers access to much great software such
+as, to name just a few examples: `ROS`_, `OpenCV`_, `scikit-image`_,
+`scikit-learn`_, `TensorFlow`_, `NuPIC`_, `NLTK`_, and `spaCy`_.  Further,
+with the language being one of the established *lingua francas* of modern
+programming, the Python DDK enables the largest possible audience to
+contribute to the development of Conreality drivers.
+
+.. _ROS:          http://www.ros.org/
+.. _OpenCV:       http://opencv.org/
+.. _scikit-image: http://scikit-image.org/
+.. _scikit-learn: http://scikit-learn.org/
+.. _TensorFlow:   https://www.tensorflow.org/
+.. _NLTK:         http://www.nltk.org/
+.. _NuPIC:        http://numenta.org/
+.. _spaCy:        https://spacy.io/
+
 Installation
 ============
 
 The DDK requires the following prerequisites on the system:
 
-* Python (3.4+)
-* Lupa (1.2+)
-* NumPy (1.10.4+)
-* OpenCV (3.0+) with Python 3.x bindings
+* `Python`_ (3.4+)
+* `Lupa`_ (1.2+)
+* `NumPy`_ (1.10.4+)
+* `OpenCV`_ (3.0+) with `Python 3.x bindings <OpenCV/Py_>`_
+
+.. _Python:       https://www.python.org/
+.. _Lupa:         https://pypi.python.org/pypi/lupa
+.. _NumPy:        https://pypi.python.org/pypi/numpy
+.. _OpenCV/Py:    http://docs.opencv.org/master/d6/d00/tutorial_py_root.html
 
 Tutorial
 ========
@@ -58,74 +79,112 @@ Reference
 Module ``conreality.ddk.camera``
 --------------------------------
 
-**(To be written.)**
+This module contains support code for generic camera APIs.
+
+.. py:class:: CameraRegistry()
+
+.. py:class:: CameraDirectory(id)
+
+.. py:class:: CameraFeed(dir)
 
 .. py:module:: conreality.ddk.driver
 
 Module ``conreality.ddk.driver``
 --------------------------------
 
-**(To be written.)**
+This module contains support code for implementing driver programs.
 
 .. py:class:: Logger()
 
+   Mixin that implements logging to the system log.
+
 .. py:method:: Logger.open(verbosity=syslog.LOG_NOTICE)
+
+   Opens the connection to the system log.
 
 .. py:method:: Logger.close()
 
-.. py:method:: Logger.loop()
+   Closes the connection to the system log.
 
 .. py:method:: Logger.log(priority, message, *args)
 
    Logs a message to the system log (typically, :file:`/var/log/syslog`).
 
-   :rtype: None
+   :return: ``self``
+   :rtype: Logger
 
 .. py:method:: Logger.panic(message, *args)
 
-   ``LOG_EMERG``
+   Logs a message to the system log with ``LOG_EMERG`` priority.
+
+   :return: ``self``
+   :rtype: Logger
 
 .. py:method:: Logger.alert(message, *args)
 
-   ``LOG_ALERT``
+   Logs a message to the system log with ``LOG_ALERT`` priority.
+
+   :return: ``self``
+   :rtype: Logger
 
 .. py:method:: Logger.critical(message, *args)
 
-   ``LOG_CRIT``
+   Logs a message to the system log with ``LOG_CRIT`` priority.
+
+   :return: ``self``
+   :rtype: Logger
 
 .. py:method:: Logger.error(message, *args)
 
-   ``LOG_ERR``
+   Logs a message to the system log with ``LOG_ERR`` priority.
+
+   :return: ``self``
+   :rtype: Logger
 
 .. py:method:: Logger.warning(message, *args)
 
-   ``LOG_WARNING``
+   Logs a message to the system log with ``LOG_WARNING`` priority.
+
+   :return: ``self``
+   :rtype: Logger
 
 .. py:method:: Logger.notice(message, *args)
 
-   ``LOG_NOTICE``
+   Logs a message to the system log with ``LOG_NOTICE`` priority.
+
+   :return: ``self``
+   :rtype: Logger
 
 .. py:method:: Logger.info(message, *args)
 
-   ``LOG_INFO``
+   Logs a message to the system log with ``LOG_INFO`` priority.
+
+   :return: ``self``
+   :rtype: Logger
 
 .. py:method:: Logger.debug(message, *args)
 
-   ``LOG_DEBUG``
+   Logs a message to the system log with ``LOG_DEBUG`` priority.
+
+   :return: ``self``
+   :rtype: Logger
 
 .. py:class:: Driver(argv=sys.argv, argparser=ArgumentParser, input=sys.stdin, output=sys.stdout)
 
 .. py:method:: Driver.init()
 
    Executed on initialization of the driver process.
+   Override this in your subclass.
 
 .. py:method:: Driver.exit()
 
    Executed on termination of the driver process.
+   Override this in your subclass.
 
 .. py:method:: Driver.loop()
 
    Executed on each tick of the driver event loop.
+   Override this in your subclass.
 
 .. py:method:: Driver.stop()
 
@@ -133,18 +192,19 @@ Module ``conreality.ddk.driver``
 
 .. py:class:: ArgumentParser()
 
+   The default implementation of command-line argument parsing.
+
 .. py:class:: DataDirectory(*path)
 
 .. py:exception:: DataDirectoryException(error)
-
-.. py:exception:: SignalException(signum)
 
 .. py:module:: conreality.ddk.sysexits
 
 Module ``conreality.ddk.sysexits``
 ----------------------------------
 
-**(To be written.)**
+This module contains constants for the standard exit codes that driver
+programs should use to indicate their termination status.
 
 .. py:data:: EX_OK          = 0  # successful termination
 .. py:data:: EX_USAGE       = 64 # command line usage error
