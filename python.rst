@@ -42,7 +42,9 @@ Parsing Command-Line Arguments
 .. code-block:: python
 
    if __name__ == '__main__':
-     MyDriver(argparser=MyArgumentParser).run()
+     import sys
+     with MyDriver(argparser=MyArgumentParser) as driver:
+       sys.exit(driver.run())
 
 Reference
 =========
@@ -65,49 +67,69 @@ Module ``conreality.ddk.driver``
 
 **(To be written.)**
 
-.. py:class:: Driver(argv=sys.argv, argparser=ArgumentParser)
+.. py:class:: Logger()
 
-.. py:method:: Driver.init()
+.. py:method:: Logger.open(verbosity=syslog.LOG_NOTICE)
 
-.. py:method:: Driver.exit()
+.. py:method:: Logger.close()
 
-.. py:method:: Driver.loop()
+.. py:method:: Logger.loop()
 
-.. py:method:: Driver.log(priority, message, *args)
+.. py:method:: Logger.log(priority, message, *args)
 
-  :rtype: None
+   Logs a message to the system log (typically, :file:`/var/log/syslog`).
 
-.. py:method:: Driver.panic(message, *args)
+   :rtype: None
+
+.. py:method:: Logger.panic(message, *args)
 
    ``LOG_EMERG``
 
-.. py:method:: Driver.alert(message, *args)
+.. py:method:: Logger.alert(message, *args)
 
    ``LOG_ALERT``
 
-.. py:method:: Driver.critical(message, *args)
+.. py:method:: Logger.critical(message, *args)
 
    ``LOG_CRIT``
 
-.. py:method:: Driver.error(message, *args)
+.. py:method:: Logger.error(message, *args)
 
    ``LOG_ERR``
 
-.. py:method:: Driver.warning(message, *args)
+.. py:method:: Logger.warning(message, *args)
 
    ``LOG_WARNING``
 
-.. py:method:: Driver.notice(message, *args)
+.. py:method:: Logger.notice(message, *args)
 
    ``LOG_NOTICE``
 
-.. py:method:: Driver.info(message, *args)
+.. py:method:: Logger.info(message, *args)
 
    ``LOG_INFO``
 
-.. py:method:: Driver.debug(message, *args)
+.. py:method:: Logger.debug(message, *args)
 
    ``LOG_DEBUG``
+
+.. py:class:: Driver(argv=sys.argv, argparser=ArgumentParser, input=sys.stdin, output=sys.stdout)
+
+.. py:method:: Driver.init()
+
+   Executed on initialization of the driver process.
+
+.. py:method:: Driver.exit()
+
+   Executed on termination of the driver process.
+
+.. py:method:: Driver.loop()
+
+   Executed on each tick of the driver event loop.
+
+.. py:method:: Driver.stop()
+
+   Stops the driver event loop, terminating the driver process.
 
 .. py:class:: ArgumentParser()
 

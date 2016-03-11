@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python3
 # This is free and unencumbered software released into the public domain.
 from conreality import ddk
 
@@ -17,8 +17,9 @@ class MyDriver(ddk.Driver):
     pass # TODO
 
   def loop(self):
-    while True:
-      self.pause() # TODO
+    pass # TODO
 
 if __name__ == '__main__':
-  MyDriver(argparser=MyArgumentParser).run()
+  import sys
+  with MyDriver(argparser=MyArgumentParser) as driver:
+    sys.exit(driver.run())
