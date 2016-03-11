@@ -4,6 +4,16 @@ Conreality DDK for Python
 
 **(To be written.)**
 
+Installation
+============
+
+The DDK requires the following prerequisites on the system:
+
+* Python (3.4+)
+* Lupa (1.2+)
+* NumPy (1.10.4+)
+* OpenCV (3.0+) with Python 3.x bindings
+
 Tutorial
 ========
 
