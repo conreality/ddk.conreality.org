@@ -24,6 +24,10 @@ Glossary
 
      General-Purpose I/O.
 
+   HAL
+
+     Hardware Abstraction Layer.
+
    I/O
 
      Input/Output.
