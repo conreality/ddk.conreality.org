@@ -141,3 +141,16 @@ codes, as per the following guidelines:
 +------+--------------------+--------------------------------------------------+
 |   78 | ``EX_CONFIG``      | configuration error                              |
 +------+--------------------+--------------------------------------------------+
+
+Data Storage
+============
+
+Drivers must store their temporary runtime data (e.g., the current video
+frame for a video capture device driver) under the ephemeral storage at
+``/var/run/conreality`` (``/run/conreality`` on modern Linux distributions,
+but ``/var/run`` is a symlink to ``/run`` so the difference is immaterial).
+This directory hierarchy gets reset on system boot.
+
+Any permanent data that should persist across reboots must be stored in a
+driver-specific subdirectory under ``/var/lib/conreality``. The
+subdirectory should be named after the driver class or driver name.
