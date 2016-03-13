@@ -2,14 +2,19 @@
 Conreality DDK for Python
 *************************
 
-**(To be written.)**
+This chapter describes the Conreality driver development kit (DDK) for the
+Python programming language.
+
+The Python language is one of the established *lingua francas* of modern
+programming, and the Python DDK is intended to enable the largest possible
+developer audience to contribute to the development of Conreality drivers.
 
 The Python ecosystem affords drivers access to much great software such
 as, to name just a few examples: `ROS`_, `OpenCV`_, `scikit-image`_,
-`scikit-learn`_, `TensorFlow`_, `NuPIC`_, `NLTK`_, and `spaCy`_.  Further,
-with the language being one of the established *lingua francas* of modern
-programming, the Python DDK enables the largest possible audience to
-contribute to the development of Conreality drivers.
+`scikit-learn`_, `TensorFlow`_, `NuPIC`_, `NLTK`_, and `spaCy`_. Further,
+there tend to be no shortage of Python libraries, tutorials, and examples
+available for popular single-board computer platforms such as the Raspberry
+Pi.
 
 .. _ROS:          http://www.ros.org/
 .. _OpenCV:       http://opencv.org/
@@ -23,7 +28,8 @@ contribute to the development of Conreality drivers.
 Installation
 ============
 
-The DDK requires the following prerequisites on the system:
+The Conreality DDK for Python supports POSIX platforms and requires the
+following prerequisites on the development and target systems:
 
 * `Python`_ (3.4+)
 * `Lupa`_ (1.2+)
@@ -34,6 +40,29 @@ The DDK requires the following prerequisites on the system:
 .. _Lupa:         https://pypi.python.org/pypi/lupa
 .. _NumPy:        https://pypi.python.org/pypi/numpy
 .. _OpenCV/Py:    http://docs.opencv.org/master/d6/d00/tutorial_py_root.html
+
+::
+
+   $ sudo apt-get install python3-pip
+   $ sudo apt-get install python3-numpy
+   $ sudo apt-get install python3-opencv # after Ubuntu 16.04
+
+   $ sudo pip3 install lupa
+   $ sudo pip3 install numpy             # only if python3-numpy not available
+   $ sudo pip3 install cython            # optional
+
+Introduction
+============
+
+The Python DDK is built around the asynchronous I/O facilities in Python 3
+(the ``asyncio`` package in the standard library).
+
+Each Python driver runs an ``asyncio`` event loop, waiting for events of
+interest. The driver process will typically be sleeping most of the time,
+only waking up when there is a state change on one of the monitored file
+descriptors. The event loop registers file descriptors to be monitored with
+the operating system kernel, enabling power-efficient waiting without a busy
+loop.
 
 Tutorial
 ========
@@ -222,3 +251,15 @@ programs should use to indicate their termination status.
 .. py:data:: EX_PROTOCOL    = 76 # remote error in protocol
 .. py:data:: EX_NOPERM      = 77 # permission denied
 .. py:data:: EX_CONFIG      = 78 # configuration error
+
+Links
+=====
+
+* `Python 3.x Documentation <https://docs.python.org/3/>`__
+
+  * `asyncio: Asynchronous I/O, event loop, coroutines and tasks
+    <https://docs.python.org/3/library/asyncio.html>`__
+
+* `Python 3.4 Documentation <https://docs.python.org/3.4/>`__
+
+* `Python 2.7 Documentation <https://docs.python.org/2.7/>`__
