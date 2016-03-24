@@ -35,11 +35,13 @@ following prerequisites on the development and target systems:
 * `Lupa`_ (1.2+)
 * `NumPy`_ (1.10.4+)
 * `OpenCV`_ (3.0+) with `Python 3.x bindings <OpenCV/Py_>`_
+* `scandir` (included in Python 3.5+)
 
 .. _Python:       https://www.python.org/
 .. _Lupa:         https://pypi.python.org/pypi/lupa
 .. _NumPy:        https://pypi.python.org/pypi/numpy
 .. _OpenCV/Py:    http://docs.opencv.org/master/d6/d00/tutorial_py_root.html
+.. _scandir:      https://pypi.python.org/pypi/scandir
 
 ::
 
@@ -49,6 +51,7 @@ following prerequisites on the development and target systems:
 
    $ sudo pip3 install lupa
    $ sudo pip3 install numpy             # only if python3-numpy not available
+   $ sudo pip3 install scandir           # not needed for Python 3.5+
    $ sudo pip3 install cython            # optional
 
 Introduction
