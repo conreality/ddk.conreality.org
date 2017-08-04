@@ -45,9 +45,9 @@ following prerequisites on the development and target systems:
 
 ::
 
-   $ sudo apt-get install python3-pip
-   $ sudo apt-get install python3-numpy
-   $ sudo apt-get install python3-opencv # after Ubuntu 16.04
+   $ sudo apt install python3-pip
+   $ sudo apt install python3-numpy
+   $ sudo apt install python3-opencv # after Ubuntu 16.04
 
    $ sudo pip3 install lupa
    $ sudo pip3 install numpy             # only if python3-numpy not available
@@ -254,6 +254,15 @@ programs should use to indicate their termination status.
 .. py:data:: EX_PROTOCOL    = 76 # remote error in protocol
 .. py:data:: EX_NOPERM      = 77 # permission denied
 .. py:data:: EX_CONFIG      = 78 # configuration error
+
+.. py:module:: conreality.sdk.storage
+
+Module ``conreality.sdk.storage``
+---------------------------------
+
+.. py:class:: DataDirectory(*path)
+
+.. py:exception:: DataDirectoryException(error)
 
 Links
 =====

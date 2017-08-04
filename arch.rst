@@ -147,10 +147,18 @@ Data Storage
 
 Drivers must store their temporary runtime data (e.g., the current video
 frame for a video capture device driver) under the ephemeral storage at
-``/var/run/conreality`` (``/run/conreality`` on modern Linux distributions,
-but ``/var/run`` is a symlink to ``/run`` so the difference is immaterial).
-This directory hierarchy gets reset on system boot.
+``/var/run/conreality`` (in fact, ``/run/conreality`` on modern Linux
+distributions, but as ``/var/run`` is a symlink to ``/run`` the difference
+is immaterial). This directory hierarchy gets reset on system boot.
 
-Any permanent data that should persist across reboots must be stored in a
-driver-specific subdirectory under ``/var/lib/conreality``. The
-subdirectory should be named after the driver class or driver name.
+Any permanent data that should persist across reboots (e.g., a PRNG seed)
+must be stored in a driver-specific subdirectory under ``/var/lib/conreality``.
+The subdirectory should be named after the driver class or driver name.
+
+Messaging Bus
+=============
+
+Drivers have access to a local publish/subscribe messaging bus implemented
+using POSIX named pipes.
+
+**(To be written.)**
