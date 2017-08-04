@@ -22,7 +22,6 @@ The latest version of this manual can be browsed online at
    hardware
    registry
    interfaces
-   ocaml
    python
    faq
    history

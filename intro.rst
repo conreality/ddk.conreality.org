@@ -7,8 +7,7 @@ makers adding support in Conreality for new hardware devices or porting the
 Conreality platform to new hardware architectures and development boards.
 
 Conreality device drivers are userspace abstractions that are implemented
-primarily in the OCaml programming language, with minor bits of lower-level
-C/C++ language glue as needed.
+primarily in the C++ programming language.
 
 The device drivers at this level do not generally deal with raw hardware
 itself, but rather low-level system interfaces exposed by the kernel. For
